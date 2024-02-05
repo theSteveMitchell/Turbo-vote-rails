@@ -12,7 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.collection_radio_buttons :candidate_id, Candidate.all.order(:name), :id, :name, required: true %>
+    <%# we pass a custom block to the form helper, only to wrap in a div for styling %>
+    <%= form.collection_radio_buttons :candidate_id, Candidate.all.order(:name), :id, :name, required: true do |b| %>
+        <div class="candidate_radio">
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %>
+        </div>
+    <% end %>
   </div>
 
   <div>

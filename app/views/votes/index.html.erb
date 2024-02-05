@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Votes</h1>
+<h1>Election results</h1>
 
 <div id="votes">
-  <% @votes.each do |vote| %>
-    <%= render vote %>
-    <p>
-      <%= link_to "Show this vote", vote %>
-    </p>
+  <% @vote_counts.each do |vote| %>
+    <div class="vote-total">
+      <div style="float:left; width: 50%">
+        <%= vote[:candidate_name] %>
+      </div>
+      <div style="float: right; width: 50%; text-align: right;">
+        <%= vote[:votes] %>
+      </div>
+      <div style="clear: both"></div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New vote", new_vote_path %>
