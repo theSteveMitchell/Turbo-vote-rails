@@ -7,10 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header>
+      <h1>TurboVote</h1>
+      <nav>
+        <a href="/">Results</a>
+        <a href="/votes/new">Vote</a>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
