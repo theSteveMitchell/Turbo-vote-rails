@@ -1,15 +1,5 @@
 class CandidatesController < ApplicationController
 
-  # GET /candidates or /candidates.json
-  def index
-    @candidates = Candidate.all
-  end
-
-  # GET /candidates/new
-  def new
-    @candidate = Candidate.new
-  end
-
   # POST /candidates or /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)

@@ -12,7 +12,7 @@ class VotesController < ApplicationController
     @vote = Vote.new
   end
 
-  # POST /votes or /votes.json
+  # POST /votes
   def create
     @vote = Vote.new(vote_params)
 

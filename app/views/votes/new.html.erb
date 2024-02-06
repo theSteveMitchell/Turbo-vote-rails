@@ -3,7 +3,8 @@
 <%= render "form", vote: @vote %>
 
 <br>
+<% if write_in_allowed %>
+  <h3>Or, add a new candidate:</h3>
 
-<h3>Or, add a new candidate:</h3>
-
-<%= render "candidates/form", candidate: Candidate.new, vote: @vote %>
+  <%= render "candidates/form", candidate: Candidate.new, vote: @vote %>
+<% end %>
