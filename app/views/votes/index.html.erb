@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Election results</h1>
+
+<div id="votes">
+  <% @vote_counts.each do |vote| %>
+    <div class="vote-total">
+      <div style="float:left; width: 50%">
+        <%= vote[:candidate_name] %>
+      </div>
+      <div style="float: right; width: 50%; text-align: right;">
+        <%= vote[:votes] %>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<%= form_with(model: vote) do |form| %>
+  <% if vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+        <% vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%# we pass a custom block to the form helper, only to wrap in a div for styling %>
+    <%= form.collection_radio_buttons :candidate_id, Candidate.all.order(:name), :id, :name, required: true do |b| %>
+        <div class="candidate_radio">
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %>
+        </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Vote" %>
+  </div>
+<% end %>
