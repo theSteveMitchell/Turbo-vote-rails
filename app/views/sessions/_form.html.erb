@@ -1,0 +1,27 @@
+<%= form_with(model: voter, url: sessions_path) do |form| %>
+  <% if voter.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(voter.errors.count, "error") %> prohibited this voter from being saved:</h2>
+
+      <ul>
+        <% voter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :postal_code, style: "display: block" %>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

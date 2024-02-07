@@ -23,6 +23,10 @@ header nav {
   vertical-align: baseline; 
 }
 
+header .voter_email {
+  float: right;
+}
+
 .vote-total {
   border-bottom-style: solid;
   padding: 10px;
@@ -30,6 +34,12 @@ header nav {
 
 .vote-total:first-of-type {
   border-top-style: solid;
+}
+
+.timer {
+  float: right;
+  text-align: right;
+  grid-column: 1/-1 
 }
 
 div .candidate_radio {
