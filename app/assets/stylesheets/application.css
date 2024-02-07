@@ -36,6 +36,12 @@ header .voter_email {
   border-top-style: solid;
 }
 
+.timer {
+  float: right;
+  text-align: right;
+  grid-column: 1/-1 
+}
+
 div .candidate_radio {
   display: block;
   padding: 5px;

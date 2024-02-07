@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   # GET /sessions/new
   def new
+    reset_session
     @voter = Voter.new
   end
 

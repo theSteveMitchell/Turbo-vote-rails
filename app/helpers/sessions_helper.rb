@@ -7,6 +7,10 @@ module SessionsHelper
     session[:expires_at] && session[:expires_at] > Time.current
   end
 
+  def session_expiration
+    session[:expires_at]
+  end
+
   def current_voter_id
     session[:current_voter_id]
   end
