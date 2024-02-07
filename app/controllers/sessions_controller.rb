@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       session[:create_at] = Time.current
       session[:expires_at] = 5.minutes.from_now
 
-      redirect_to votes_url, notice: "Registred"
+      redirect_to new_vote_url, notice: "Registred"
     else
       render :new, status: :unprocessable_entity
     end

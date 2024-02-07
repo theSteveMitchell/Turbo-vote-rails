@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   VOTE_MASK = 10
+  before_action :authenticate_voter!, only: %i[new create]
 
   # GET /votes or /votes.json
   # lists vote tallies, but only update after every 10 votes
@@ -17,14 +18,24 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
+    if existing_vote
+      reset_session
+      redirect_to votes_url, warning: "You've already voted"
+    end 
     @vote = Vote.new
   end
 
   # POST /votes
   def create
+    if existing_vote
+      reset_session
+      redirect_to votes_url, notic: "You've already voted"
+    end 
     @vote = Vote.new(vote_params)
+    @vote.voter_id = current_voter_id
 
     if @vote.save
+      reset_session
       redirect_to votes_url, notice: "Vote was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -35,5 +46,9 @@ class VotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def vote_params
       params.require(:vote).permit(:candidate_id)
+    end
+
+    def existing_vote
+      Vote.find_by(voter_id: current_voter_id)
     end
 end
