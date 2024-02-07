@@ -18,6 +18,11 @@
         <a href="/">Results</a>
         <a href="/votes/new">Vote</a>
       </nav>
+      <div class="voter_email">
+        <% if current_voter_email %>
+        <p>Signed in as <%= current_voter_email %></p>
+        <% end %>
+      </div>
     </header>
     <%= yield %>
   </body>

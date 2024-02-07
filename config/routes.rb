@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :to => 'votes#index'
   resources :votes, only: %i[new create index]
   resources :candidates, only: %i[new create]
+  resources :sessions, only: %i[new create destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

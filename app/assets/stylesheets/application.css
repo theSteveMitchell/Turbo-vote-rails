@@ -23,6 +23,10 @@ header nav {
   vertical-align: baseline; 
 }
 
+header .voter_email {
+  float: right;
+}
+
 .vote-total {
   border-bottom-style: solid;
   padding: 10px;
