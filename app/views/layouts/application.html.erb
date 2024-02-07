@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve  %>
     <%= javascript_importmap_tags %>
   </head>
 
